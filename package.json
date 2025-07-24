@@ -2,7 +2,7 @@
   "name": "personal-portfolio",
   "private": true,
   "version": "0.0.0",
-  "type": "module",
+  "type": "commonjs",
   "config": {
     "commitizen": {
       "path": "cz-conventional-changelog"
