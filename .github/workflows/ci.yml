@@ -5,26 +5,22 @@ jobs:
   test:
     runs-on: ubuntu-latest
     steps:
-      - name: Checkout repository
-        uses: actions/checkout@v4
-        with:
-          # Fixes email-related issues
-          persist-credentials: false
-          fetch-depth: 0
-
-      - name: Set up Git config
-        run: |
-          git config --global user.email "41898282+github-actions[bot]@users.noreply.github.com"
-          git config --global user.name "GitHub Actions Bot"
+      
+      - uses: actions/checkout@v4
 
       - name: Set up Node.js
-        uses: actions/setup-node@v4
-        with:
+        uses: action/setup-node@v4
+        with: 
           node-version: 20
           cache: 'npm'
 
       - name: Install dependencies
         run: npm ci
+
+      - name: TypeScript check
+        run: 
+          npm install -D typecheck
+          npm run type-check
 
       - name: Build project
         run: npm run build
