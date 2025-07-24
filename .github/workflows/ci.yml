@@ -4,26 +4,27 @@ on: [push, pull_request]
 jobs:
   test:
     runs-on: ubuntu-latest
+    container:
+      image: node:20-bookworm-slim
     steps:
-      
-      - uses: actions/checkout@v4
-
-      - name: Set up Node.js
-        uses: action/setup-node@v3
-        with: 
-          node-version: 20
-          cache: 'npm'
+      - name: Checkout code
+        uses: actions/checkout@v4
 
       - name: Install dependencies
-        run: npm ci
+        run: |
+          npm ci
+          npm cache clean --force
 
-      - name: TypeScript check
-        run: 
-          npm install -D typecheck
-          npm run type-check
+      - name: Type check
+        run: npm run type-check
 
       - name: Build project
         run: npm run build
+      
+      - name: Verify production build
+        run: |
+          ls -la dist/
+          [ -f dist/index.html ] || exit 1
 
       # Optional: Add caching for faster builds
       - name: Cache node modules
