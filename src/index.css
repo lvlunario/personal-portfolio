@@ -2,11 +2,13 @@
 @tailwind components;
 @tailwind utilities;
 
-:root {
-    --primary: #0a0a0a;
-    --secondary: #737373;
-    --accent: #3b82f6;
-    --background: #ffffff;
+@layer base {
+    :root {
+        --background: #ffffff;
+        --primary: #0a0a0a;
+        --secondary: #737373;
+        --accent: #3b82f6;
+    }
 }
 
 .dark {
@@ -16,5 +18,6 @@
 }
 
 body {
-    @apply bg-background text-primary font-sans antialiased;
+    background-color: var(--background);
+    color: var(--primary);
 }
