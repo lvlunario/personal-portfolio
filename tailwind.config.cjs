@@ -5,11 +5,16 @@ module.exports = {
   ],
   theme: {
     extend: {
-      colors: {
-        background: 'var(--background)',
+      backgroundColor: {
+        background: 'var(--background)'
+      },
+      textColor: {
         primary: 'var(--primary)',
         secondary: 'var(--secondary)',
         accent: 'var(--accent)'
+      },
+      borderColor: {
+        DEFAULT: 'var(--secondary)'
       }
     },
   },
