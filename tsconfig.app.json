@@ -7,15 +7,15 @@
     "module": "ESNext",
     "skipLibCheck": true,
 
-    /* Bundler mode */
+    /* Bundler mode (Vite-compatible) */
     "moduleResolution": "bundler",
     "allowImportingTsExtensions": true,
     "verbatimModuleSyntax": true,
     "moduleDetection": "force",
     "noEmit": true,
-    "jsx": "react-jsx",
+    "jsx": "react-jsx",  // ✅ This enables new JSX transform
 
-    /* Linting */
+    /* Type checking / Linting */
     "strict": true,
     "noUnusedLocals": true,
     "noUnusedParameters": true,
