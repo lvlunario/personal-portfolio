@@ -1,0 +1,20 @@
+// {
+//   "css.lint.unknownAtRules": "ignore",
+//   "files.associations": {
+//     "*.css": "postcss"
+//   },
+//   "emmet.includeLanguages": {
+//     "postcss": "css"
+//   },
+//   "tailwindCSS.includeLanguages": {
+//     "plaintext": "postcss"
+//   },
+//   "editor.quickSuggestions": {
+//     "strings": true
+//   },
+//   "[postcss]": {
+//     "editor.quickSuggestions": {
+//       "strings": true
+//     }
+//   }
+// }

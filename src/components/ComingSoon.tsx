@@ -1,3 +1,4 @@
+import React from 'react';
 export default function ComingSoon() {
     return (
         <section className="py-20 text-center">

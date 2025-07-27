@@ -1,3 +1,4 @@
+import React from 'react';
 import AnimatedSection from '../components/AnimatedSection';
 import ProjectCard from '../components/ProjectCard';
 

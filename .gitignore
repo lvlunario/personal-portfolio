@@ -24,3 +24,7 @@ dist-ssr
 *.sw?
 
 *.js  # Ignore any new .js config files
+
+.vscode/*
+!.vscode/settings.json
+!.vscode/extensions.json
