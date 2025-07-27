@@ -13,7 +13,13 @@
     "verbatimModuleSyntax": true,
     "moduleDetection": "force",
     "noEmit": true,
-    "jsx": "react-jsx",  // ✅ This enables new JSX transform
+    "jsx": "react-jsx",
+
+    /* Aliases */
+    "baseUrl": ".",
+    "paths": {
+      "@/*": ["src/*"]
+    },
 
     /* Type checking / Linting */
     "strict": true,
