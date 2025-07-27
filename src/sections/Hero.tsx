@@ -1,5 +1,5 @@
 import { motion } from 'framer-motion';
-import { FiArrowDown, FiGithub, FiLinkedin } from 'react-icoons/fi';
+import { FiArrowDown, FiGithub, FiLinkedin } from 'react-icons/fi';
 import AnimatedText from '../components/AnimatedText';
 
 export default function Hero() {
