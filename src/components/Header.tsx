@@ -20,7 +20,7 @@ export default function Header() {
                 animate={{ opacity: 1 }}
                 className="text-x1 font-medium"
                 >
-                    <span className="font-bold">Leonardo</span>Name
+                    <span className="font-bold"></span>
                 </motion.a>
 
                 {/* Desktop Navigation */}

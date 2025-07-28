@@ -84,14 +84,11 @@ export default function Hero() {
             <div className="absolute inset-0 bg-muted flex items-center justify-center text-6xl">
                 👤
             </div>
-            {/* Replace 👤 with your real image by un-commenting below and adding your image to public/assets */}
-            {/*
             <img
-              src="/assets/leo-avatar.jpg"
-              alt="Leonardo Lunario"
-              className="absolute inset-0 w-full h-full object-cover rounded-2xl"
+                src="/assets/leo-avatar.png"
+                alt="Leonardo Lunario"
+                className="absolute inset-0 w-full h-full object-cover rounded-2xl"
             />
-            */}
           </motion.div>
         </div>
       </section>
