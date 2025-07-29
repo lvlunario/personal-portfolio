@@ -1,9 +1,8 @@
-
 import React from 'react';
 import ComingSoon from '../components/ComingSoon';
 
-const Contact = () => {
+const Blog = () => {
   return <ComingSoon />;
 };
 
-export default Contact;
+export default Blog;

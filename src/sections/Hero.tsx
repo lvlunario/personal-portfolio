@@ -3,6 +3,8 @@
 
 import { motion } from "framer-motion";
 import AnimatedSection from "@/components/AnimatedSection";
+import { FaGithub, FaLinkedin } from "react-icons/fa";
+import { TypeAnimation } from 'react-type-animation';
 
 export default function Hero() {
     return (
@@ -25,14 +27,29 @@ export default function Hero() {
                 Hi, I’m <span className="text-accent">Leonardo Lunario</span>
             </h1>
 
-            <p className="text-xl text-muted-foreground font-medium">
-                Engineer 👷‍♂️ • Project Manager 📈 • Lifelong Learner 📚
-            </p>
+            <TypeAnimation
+                sequence={[
+                    'Engineer 👷‍♂️',
+                    2000,
+                    'Real Estate Owner',
+                    2000,
+                    'Project Manager 📈',
+                    2000,
+                    'Family Man 👨‍👩‍👧‍👦',
+                    2000,
+                    'Lifelong Learner 📚',
+                    2000,
+                ]}
+                wrapper="p"
+                speed={50}
+                style={{ fontSize: '1.25rem', fontWeight: '500', color: 'var(--color-muted-foreground' }}
+                repeat={Infinity}
+            />
 
             <p className="text-base leading-relaxed text-muted-foreground">
                 I’m passionate about solving real-world problems using systems engineering,
-                project leadership, and continuous innovation. From SCADA systems to drones
-                and quantum demos — I make tech work for people.
+                project leadership, and continuous innovation. From Aerospace and Defense systems, to Energy systems to drones
+                and full stack development — I make tech work for people.
             </p>
 
             {/* Labels */}
@@ -49,6 +66,15 @@ export default function Hero() {
                 </div>
 
              {/* CTA Buttons */}
+
+                <div className="flex space-x-4 mt-6">
+                    <a href="https://github.com/lvlunario" target="_blank" rel ="noopener noreferrer" aria-label="GitHub Profile">
+                        <FaGithub className="text-2xl text-gray-600 hover:text-accent transition-colors" />
+                    </a>
+                    <a href="https://www.linkedin.com/in/leonardolunario" target="_blank" rel ="noopener noreferrer" aria-label="LinkedIn Profile">
+                        <FaLinkedin className="text-2xl text-gray-600 hover:text-accent transition-colors" />
+                    </a>
+                </div>
                 <div className="flex flex-wrap gap-4 pt-6">
                 <a
                     href="#contact"
@@ -91,6 +117,18 @@ export default function Hero() {
             />
           </motion.div>
         </div>
+        <motion.div
+            initial={{ opacity: 0, y: 10 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ delay: 1, duration: 1, repeat: Infinity, repeatType: 'reverse'}}
+            className="absolute bottom-10 left-1/2 transform -translate-x-1/2"
+        >
+            <a href="#about" aria-label="Scroll to About section">
+                <svg className="w-6 h-6 text-accent" fill="none" strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" viewBox="0 0 24 24" stroke="currentColor">
+                    <path d="M19 14l-7 7m0 0l-7-7m7 7V3"></path>
+                </svg>
+            </a>
+        </motion.div>
       </section>
     </AnimatedSection>
   );
