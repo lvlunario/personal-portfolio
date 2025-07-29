@@ -4,31 +4,37 @@
 
 /* Custom theme */
 :root {
-    /* Light theme */
-    --color-background: 255 255 255;
+    /* Light theme - Bright and modern */
+    --color-background: 240 249 255; /* Light blue background */
     --color-foreground: 15 23 42;
-    --color-primary: 29 78 216;
-    --color-primary-foreground: 248 250 252;
-    --color-secondary: 234 88 12;
-    --color-accent: 124 58 237;
+    --color-primary: 37 99 235; /* Bright blue */
+    --color-primary-foreground: 255 255 255;
+    --color-secondary: 249 115 22; /* Bright orange */
+    --color-accent: 124 58 237; /* Purple */
+    --color-card-bg: 255 255 255; /* White for cards */
+    --color-card-border: 226 232 240; /* Light gray for borders */
+    --color-header-text: 15 23 42;
+    --color-footer-bg: 241 245 249;
 }
 
-@media (prefers-color-scheme: dark) {
-    :root {
-        /* Dark theme */
-        --color-background: 15 23 42;
-        --color-foreground: 248 250 252;
-        --color-primary: 59 130 246;
-        --color-primary-foreground: 15 23 42;
-        --color-secondary: 251 146 60;
-        --color-accent: 139 92 246;
-    }
+:root[data-theme="dark"] {
+    /* Dark theme - Keep as is */
+    --color-background: 15 23 42;
+    --color-foreground: 248 250 252;
+    --color-primary: 59 130 246;
+    --color-primary-foreground: 15 23 42;
+    --color-secondary: 251 146 60;
+    --color-accent: 139 92 246;
+    --color-card-bg: 30 41 59; /* Dark blue for cards */
+    --color-card-border: 51 65 85; /* Darker blue for borders */
+    --color-header-text: 248 250 252;
+    --color-footer-bg: 30 41 59;
 }
 
 /* Apply colors */
 @layer base {
     body {
-        @apply bg-background text-foreground;
+        @apply bg-background text-foreground transition-colors duration-300;
     }
 
     h1, h2, h3 {
@@ -40,13 +46,23 @@
     }
 }
 
+@layer components {
+    .card {
+        @apply bg-[rgb(var(--color-card-bg))] border border-[rgb(var(--color-card-border))] rounded-lg shadow-lg transition-all duration-300;
+    }
+
+    .btn-primary {
+        @apply bg-primary text-primary-foreground hover:bg-primary/90 transition-colors duration-300 rounded-md px-4 py-2 font-medium;
+    }
+}
+
 @layer utilities {
     /* Glass morphism effect */
     .glass {
         @apply backdrop-blur-md bg-white/10 dark:bg-black/20;
     }
 
-  /* Smooth transitions */
+    /* Smooth transitions */
     .transition-slow {
         @apply transition-all duration-300 ease-in-out;
     }

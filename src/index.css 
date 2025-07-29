@@ -1,0 +1,29 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  :root {
+    --color-background: 255 255 255;
+    --color-foreground: 0 0 0;
+    --color-primary: 59 130 246;
+    --color-primary-foreground: 255 255 255;
+    --color-secondary: 249 115 22;
+    --color-accent: 124 58 237;
+    --color-card-bg: 255 255 255;
+    --color-card-border: 229 231 235;
+  }
+
+  .dark {
+    --color-background: 15 23 42;
+    --color-foreground: 255 255 255;
+    --color-primary: 59 130 246;
+    --color-primary-foreground: 15 23 42;
+    --color-secondary: 251 146 60;
+    --color-accent: 139 92 246;
+    --color-card-bg: 30 41 59;
+    --color-card-border: 51 65 85;
+  }
+}
+
+/* Add any additional custom styles here */

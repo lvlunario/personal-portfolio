@@ -1,6 +1,7 @@
 // src/components/Hero.tsx
 "use client";
 
+import React from 'react';
 import { motion } from "framer-motion";
 import AnimatedSection from "@/components/AnimatedSection";
 import { FaGithub, FaLinkedin } from "react-icons/fa";
@@ -9,7 +10,7 @@ import { TypeAnimation } from 'react-type-animation';
 export default function Hero() {
     return (
         <AnimatedSection>
-            <section className="relative isolate">
+            <section className="relative isolate bg-background text-foreground">
             {/* Background Gradients */}
             <div className="absolute top-1/3 right-0 -z-10 w-96 h-96 bg-accent/30 rounded-full blur-[120px] mix-blend-multiply opacity-70" />
             <div className="absolute top-1/4 left-0 -z-10 w-96 h-96 bg-secondary/30 rounded-full blur-[120px] mix-blend-multiply opacity-70" />
@@ -42,7 +43,7 @@ export default function Hero() {
                 ]}
                 wrapper="p"
                 speed={50}
-                style={{ fontSize: '1.25rem', fontWeight: '500', color: 'var(--color-muted-foreground' }}
+                style={{ fontSize: '1.25rem', fontWeight: '500', color: 'var(--color-muted-foreground)' }}
                 repeat={Infinity}
             />
 
@@ -107,7 +108,7 @@ export default function Hero() {
                 transition={{ delay: 0.3 }}
                 className="relative w-[80vw] max-w-[320px] aspect-square mx-auto overflow-hidden rounded-2xl"
             >
-            <div className="absolute inset-0 bg-muted flex items-center justify-center text-6xl">
+                <div className="absolute inset-0 bg-muted flex items-center justify-center text-6xl">
                 👤
             </div>
             <img
@@ -115,7 +116,7 @@ export default function Hero() {
                 alt="Leonardo Lunario"
                 className="absolute inset-0 w-full h-full object-cover rounded-2xl"
             />
-          </motion.div>
+            </motion.div>
         </div>
         <motion.div
             initial={{ opacity: 0, y: 10 }}
@@ -129,7 +130,7 @@ export default function Hero() {
                 </svg>
             </a>
         </motion.div>
-      </section>
+        </section>
     </AnimatedSection>
-  );
+    );
 }
