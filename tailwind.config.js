@@ -1,27 +1,36 @@
-module.exports = {
+/** @type {import('tailwindcss').Config} */
+export default {
+    darkMode: 'class',
     content: [
         "./index.html",
         "./src/**/*.{js,ts,jsx,tsx}",
     ],
-    darkMode: 'class',
     theme: {
         extend: {
         colors: {
-            background: 'var(--color-background)',
-            foreground: 'var(--color-foreground)',
-            primary: 'var(--color-primary)',
-            'primary-foreground': 'var(--color-primary-foreground)',
-            secondary: 'var(--color-secondary)',
-            accent: 'var(--color-accent)',
-            'card-bg': 'var(--color-card-bg)',
-            'card-border': 'var(--color-card-border)',
+            background: 'rgb(var(--color-background) / <alpha-value>)',
+            foreground: 'rgb(var(--color-foreground) / <alpha-value>)',
+            primary: {
+            DEFAULT: 'rgb(var(--color-primary) / <alpha-value>)',
+            foreground: 'rgb(var(--color-primary-foreground) / <alpha-value>)',
+            },
+            secondary: {
+            DEFAULT: 'rgb(var(--color-secondary) / <alpha-value>)',
+            foreground: 'rgb(var(--color-primary-foreground) / <alpha-value>)',
+            },
+            accent: {
+            DEFAULT: 'rgb(var(--color-accent) / <alpha-value>)',
+            foreground: 'rgb(var(--color-primary-foreground) / <alpha-value>)',
+            },
+            'card-bg': 'rgb(var(--color-card-bg) / <alpha-value>)',
+            'card-border': 'rgb(var(--color-card-border) / <alpha-value>)',
+            'header-text': 'rgb(var(--color-header-text) / <alpha-value>)',
+            'footer-bg': 'rgb(var(--color-footer-bg) / <alpha-value>)',
         },
-        textColor: {
-            'header': 'rgb(var(--color-header-text) / <alpha-value>)',
+        transitionDuration: {
+            '300': '300ms',
         },
-        backgroundColor: {
-            'footer': 'rgb(var(--color-footer-bg) / <alpha-value>)',
-        },
+        textBalance: ['responsive'],
         },
     },
     plugins: [
