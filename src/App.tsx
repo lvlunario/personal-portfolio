@@ -6,6 +6,8 @@ import Projects from './sections/Projects';
 import About from './sections/About';
 import Contact from './sections/Contact';
 
+// Lazy load the new Resume component
+const Resume = React.lazy(() => import('./sections/Resume'));
 const Blog = React.lazy(() => import('./sections/Blog'));
 const Footer = React.lazy(() => import('./components/Footer'));
 
@@ -23,15 +25,14 @@ function App() {
   useLayoutEffect(() => {
     if (isDarkTheme) {
       document.documentElement.classList.add('dark');
-      localStorage.setItem('theme', 'dark');
     } else {
       document.documentElement.classList.remove('dark');
-      localStorage.setItem('theme', 'light');
     }
+    localStorage.setItem('theme', isDarkTheme ? 'dark' : 'light');
   }, [isDarkTheme]);
 
   const toggleTheme = () => {
-    setIsDarkTheme(!isDarkTheme);
+    setIsDarkTheme(prev => !prev);
   };
 
   return (
@@ -41,7 +42,7 @@ function App() {
           <Header />
           <main className="flex-grow">
             <Suspense fallback={
-              <div className="flex justify-center items-center h-64">
+              <div className="flex justify-center items-center h-screen">
                 <div className="w-10 h-10 border-4 border-primary border-t-transparent rounded-full animate-spin"></div>
               </div>
             }>
@@ -54,17 +55,15 @@ function App() {
                     <Contact />
                   </>
                 } />
+                {/* Add the new route for your resume page */}
+                <Route path="/resume" element={<Resume />} />
                 <Route path="/projects" element={<Projects />} />
                 <Route path="/blog" element={<Blog />} />
                 <Route path="/contact" element={<Contact />} />
               </Routes>
             </Suspense>
           </main>
-          <Suspense fallback={
-            <div className="flex justify-center items-center py-10">
-              <div className="w-6 h-6 border-4 border-primary border-t-transparent rounded-full animate-spin"></div>
-            </div>
-          }>
+          <Suspense fallback={null}>
             <Footer />
           </Suspense>
         </div>
