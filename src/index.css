@@ -17,7 +17,7 @@
     --color-footer-bg: 241 245 249;
 }
 
-:root[data-theme="dark"] {
+.dark {
     /* Dark theme - Keep as is */
     --color-background: 15 23 42;
     --color-foreground: 248 250 252;
