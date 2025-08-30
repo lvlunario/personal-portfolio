@@ -16,12 +16,6 @@ export default function Projects() {
             tags: ["Next.js", "Mapbox", "Contentful"],
             link: "/explore"
         }
-        // {
-        //     title: "Open Source Library",
-        //     description: "A utility library for simplifying common web development tasks",
-        //     tags: ["TypeScript", "Jest", "NPM"],
-        //     link: "/opensource"
-        // }
     ];
 
     return (

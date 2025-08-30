@@ -16,7 +16,6 @@ export const ThemeContext = createContext({
 
 function App() {
   const [isDarkTheme, setIsDarkTheme] = useState(() => {
-    // Check if user has a preference stored in localStorage
     const savedTheme = localStorage.getItem('theme');
     return savedTheme === 'dark';
   });
@@ -41,7 +40,11 @@ function App() {
         <div className="flex flex-col min-h-screen bg-background text-foreground transition-colors duration-300">
           <Header />
           <main className="flex-grow">
-            <Suspense fallback={<div>Loading...</div>}>
+            <Suspense fallback={
+              <div className="flex justify-center items-center h-64">
+                <div className="w-10 h-10 border-4 border-primary border-t-transparent rounded-full animate-spin"></div>
+              </div>
+            }>
               <Routes>
                 <Route path="/" element={
                   <>
@@ -57,7 +60,11 @@ function App() {
               </Routes>
             </Suspense>
           </main>
-          <Suspense fallback={<div>Loading footer...</div>}>
+          <Suspense fallback={
+            <div className="flex justify-center items-center py-10">
+              <div className="w-6 h-6 border-4 border-primary border-t-transparent rounded-full animate-spin"></div>
+            </div>
+          }>
             <Footer />
           </Suspense>
         </div>
