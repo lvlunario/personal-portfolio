@@ -4,27 +4,31 @@ module.exports = {
     "./index.html",
     "./src/**/*.{js,ts,jsx,tsx}",
   ],
+  darkMode: 'class',
   theme: {
     extend: {
       colors: {
-        background: 'rgb(var(--color-background))',
-        foreground: 'rgb(var(--color-foreground))',
+        // Using CSS variables from your index.css for theme consistency
+        background: 'rgb(var(--color-background) / <alpha-value>)',
+        foreground: 'rgb(var(--color-foreground) / <alpha-value>)',
         primary: {
-          DEFAULT: 'rgb(var(--color-primary))',
-          foreground: 'rgb(var(--color-primary-foreground))',
+          DEFAULT: 'rgb(var(--color-primary) / <alpha-value>)',
+          foreground: 'rgb(var(--color-primary-foreground) / <alpha-value>)',
         },
-        secondary: {
-          DEFAULT: 'rgb(var(--color-secondary))',
-          foreground: 'rgb(var(--color-primary-foreground))',
-        },
-        accent: {
-          DEFAULT: 'rgb(var(--color-accent))',
-          foreground: 'rgb(var(--color-primary-foreground))',
-        },
+        secondary: 'rgb(var(--color-secondary) / <alpha-value>)',
+        accent: 'rgb(var(--color-accent) / <alpha-value>)',
+        'card-bg': 'rgb(var(--color-card-bg) / <alpha-value>)',
+        'card-border': 'rgb(var(--color-card-border) / <alpha-value>)',
+        'muted-foreground': 'rgb(var(--color-foreground) / 0.7)',
       },
       transitionDuration: {
-        'slow': '300ms',
+        '300': '300ms',
       },
+      textBalance: ['responsive'],
     },
   },
+  plugins: [
+    require('@tailwindcss/typography'),
+    require('@tailwindcss/forms'),
+  ],
 }
