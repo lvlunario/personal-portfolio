@@ -5,6 +5,12 @@ export default function Projects() {
   // Using more specific projects from your resume adds significant weight.
   const projects = [
     {
+      title: "Cockpit Server Management",
+      description: "Deployed and manage a personal server using Cockpit for a streamlined, web-based graphical interface for server administration and Docker container management.",
+      tags: ["Linux", "Docker", "System Admin", "Self-Hosting"],
+      link: "https://github.com/lvlunario/cockpit-server" // <-- UPDATED LINK
+    },
+    {
       title: "UAS Program Initiative",
       description: "Initiated and managed the Unmanned Aerial System (UAS) program for power grid inspections at Maui Electric, enhancing operational efficiency and safety.",
       tags: ["Program Management", "UAS", "Process Optimization"],
