@@ -1,42 +1,57 @@
 import { useState, useContext } from 'react';
 import { motion } from 'framer-motion';
 import { FiMenu, FiX, FiGithub, FiLinkedin, FiSun, FiMoon } from 'react-icons/fi';
+import { Link, useLocation, useNavigate } from 'react-router-dom'; // Import hooks
 import { ThemeContext } from '../App';
 
 export default function Header() {
   const [mobileOpen, setMobileOpen] = useState(false);
   const { isDarkTheme, toggleTheme } = useContext(ThemeContext);
+  const location = useLocation();
+  const navigate = useNavigate();
 
-  // Updated nav items to match the section IDs in your app
+  // Add the new Blog link
   const navItems = [
     { name: 'Projects', href: '#projects' },
     { name: 'About', href: '#about' },
-    // { name: 'Contact', href: '#contact' }, // <-- REMOVE THIS LINE
+    { name: 'Blog', href: '/blog' },
   ];
 
-  const handleScroll = (e: React.MouseEvent<HTMLAnchorElement, MouseEvent>, href: string) => {
+  const handleNavClick = (e: React.MouseEvent<HTMLAnchorElement, MouseEvent>, href: string) => {
     e.preventDefault();
-    const targetId = href.replace(/.*#/, "");
-    const elem = document.getElementById(targetId);
-    elem?.scrollIntoView({ behavior: 'smooth' });
-    // Close mobile menu on click
     if (mobileOpen) {
       setMobileOpen(false);
+    }
+    
+    // If it's a link to a different page, navigate
+    if (href.startsWith('/')) {
+      navigate(href);
+      return;
+    }
+
+    // If we're not on the homepage, navigate there and then scroll
+    if (location.pathname !== '/') {
+      navigate('/');
+      // Use a timeout to allow the page to change before scrolling
+      setTimeout(() => {
+        const targetId = href.substring(1);
+        const elem = document.getElementById(targetId);
+        elem?.scrollIntoView({ behavior: 'smooth' });
+      }, 100);
+    } else {
+      // If we're already on the homepage, just scroll
+      const targetId = href.substring(1);
+      const elem = document.getElementById(targetId);
+      elem?.scrollIntoView({ behavior: 'smooth' });
     }
   };
 
   return (
     <header className="fixed w-full bg-background/80 backdrop-blur-sm z-50 border-b border-card-border">
       <div className="max-w-6xl mx-auto px-6 py-4 flex justify-between items-center">
-        <motion.a
-          href="#home"
-          onClick={(e) => handleScroll(e, '#home')}
-          initial={{ opacity: 0 }}
-          animate={{ opacity: 1 }}
-          className="text-xl font-bold text-primary"
-        >
+        <Link to="/" className="text-xl font-bold text-primary">
           Leo Lunario
-        </motion.a>
+        </Link>
 
         {/* Desktop Navigation */}
         <nav className="hidden md:flex items-center gap-8">
@@ -50,8 +65,8 @@ export default function Header() {
               >
                 <a
                   href={item.href}
-                  onClick={(e) => handleScroll(e, item.href)}
-                  className="hover:text-primary transition-colors text-sm font-medium"
+                  onClick={(e) => handleNavClick(e, item.href)}
+                  className="hover:text-primary transition-colors text-sm font-medium cursor-pointer"
                 >
                   {item.name}
                 </a>
@@ -77,7 +92,7 @@ export default function Header() {
 
         {/* Mobile Menu Toggle */}
         <div className="md:hidden flex items-center gap-2">
-          <button
+           <button
             onClick={toggleTheme}
             className="p-2 rounded-full text-foreground/70 hover:text-primary transition-colors"
             aria-label="Toggle theme"
@@ -107,7 +122,7 @@ export default function Header() {
                 <a
                   href={item.href}
                   className="block py-2 hover:text-primary transition-colors"
-                  onClick={(e) => handleScroll(e, item.href)}
+                  onClick={(e) => handleNavClick(e, item.href)}
                 >
                   {item.name}
                 </a>
@@ -119,3 +134,4 @@ export default function Header() {
     </header>
   );
 }
+
