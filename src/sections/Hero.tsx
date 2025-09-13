@@ -46,7 +46,7 @@ export default function Hero() {
             {/* CTA Buttons */}
             <div className="flex flex-col sm:flex-row items-center justify-center md:justify-start gap-4 pt-6">
               <a
-                href="#contact"
+                href="mailto:leonardo.lunario@proton.me" // <-- UPDATE THIS LINE
                 className="w-full sm:w-auto px-6 py-3 bg-primary text-primary-foreground rounded-lg font-semibold shadow-lg hover:scale-105 transition-transform"
                 aria-label="Contact Leonardo"
               >

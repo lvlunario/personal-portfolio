@@ -4,9 +4,8 @@ import Header from './components/Header';
 import Hero from './sections/Hero';
 import Projects from './sections/Projects';
 import About from './sections/About';
-import Contact from './sections/Contact';
+// import Contact from './sections/Contact';
 
-// Lazy load the new Resume component
 const Resume = React.lazy(() => import('./sections/Resume'));
 const Blog = React.lazy(() => import('./sections/Blog'));
 const Footer = React.lazy(() => import('./components/Footer'));
@@ -52,14 +51,14 @@ function App() {
                     <Hero />
                     <Projects />
                     <About />
-                    <Contact />
+                    {/* <Contact /> */}
                   </>
                 } />
                 {/* Add the new route for your resume page */}
                 <Route path="/resume" element={<Resume />} />
                 <Route path="/projects" element={<Projects />} />
                 <Route path="/blog" element={<Blog />} />
-                <Route path="/contact" element={<Contact />} />
+                {/* <Route path="/contact" element={<Contact />} /> */}
               </Routes>
             </Suspense>
           </main>

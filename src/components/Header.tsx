@@ -11,7 +11,7 @@ export default function Header() {
   const navItems = [
     { name: 'Projects', href: '#projects' },
     { name: 'About', href: '#about' },
-    { name: 'Contact', href: '#contact' },
+    // { name: 'Contact', href: '#contact' }, // <-- REMOVE THIS LINE
   ];
 
   const handleScroll = (e: React.MouseEvent<HTMLAnchorElement, MouseEvent>, href: string) => {
