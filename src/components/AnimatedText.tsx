@@ -1,27 +1,38 @@
 import { motion } from 'framer-motion';
-import type { ReactNode } from 'react';
 
-export default function AnimatedText({
-    text,
-    delay = 0,
-    className = ''
-}: {
-    text: string;
-    delay?: number;
-    className?: string;
-}) {
+const sentence = {
+    hidden: { opacity: 1 },
+    visible: {
+        opacity: 1,
+        transition: {
+            delay: 0.5,
+            staggerChildren: 0.08,
+        },
+    },
+};
+
+const letter = {
+    hidden: { opacity: 0, y: 50 },
+    visible: {
+        opacity: 1,
+        y: 0,
+    },
+};
+
+const AnimatedText = ({ text }: { text: string }) => {
     return (
-        <motion.span
-            className={`inline-block ${className}`}
-            initial={{ opacity: 0, y: 20 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{
-                duration: 0.5,
-                delay,
-                ease: [0.22, 1, 0.36, 1]
-            }}
+        <motion.h1
+            variants={sentence}
+            initial="hidden"
+            animate="visible"
         >
-            {text}
-        </motion.span>
+        {text.split("").map((char, index) => (
+            <motion.span key={char + "-" + index} variants={letter}>
+                {char}
+            </motion.span>
+        ))}
+        </motion.h1>
     );
-}
+};
+
+export default AnimatedText;

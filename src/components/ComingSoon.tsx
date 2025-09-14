@@ -1,14 +1,12 @@
-import React from 'react';
-export default function ComingSoon() {
+const ComingSoon = () => {
     return (
-        <section className="py-20 text-center">
-            <div className="max-w-2xl mx-auto px-4">
-                <h2 className="text-3xl font-bold mb-4">🚧 Work in Progress</h2>
-                <p className="text-gray-600 mb-6">
-                    This section is under construction. Check back soon!
-                </p>
-                <div className="animate-pulse bg-gray-200 border-2 border-dashed rounded-xl w-16 h-16 mx-auto" />
-            </div>
-    </section>
-  );
-}
+        <div className="flex flex-col items-center justify-center min-h-[50vh] text-center px-4">
+            <h1 className="text-4xl font-bold mb-4">Coming Soon</h1>
+            <p className="text-lg text-foreground/70 max-w-md">
+            This section is under construction. Exciting things are on the way!
+            </p>
+        </div>
+    );
+};
+
+export default ComingSoon;

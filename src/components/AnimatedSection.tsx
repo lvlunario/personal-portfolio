@@ -1,21 +1,21 @@
-import { motion } from "framer-motion";
-import { ReactNode } from "react";
+import { motion, useInView } from 'framer-motion';
+import type { ReactNode } from 'react';
+import { useRef } from 'react';
 
-interface AnimatedSectionProps {
-    children: ReactNode;
-    className?: string;
-}
+// This component wraps content and animates it when it enters the viewport.
+export default function AnimatedSection({ children }: { children: ReactNode }) {
+    const ref = useRef(null);
+    const isInView = useInView(ref, { once: true, amount: 0.2 });
 
-export default function AnimatedSection({ children, className }: AnimatedSectionProps) {
     return (
-        <motion.div
-            className={className}
-            initial={{ opacity: 0, y: 20 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true, amount: 0.2 }}
-            transition={{ duration: 0.6 }}
-        >
+        <div ref={ref}>
+            <motion.div
+            initial={{ opacity: 0, y: 30 }}
+            animate={{ opacity: isInView ? 1 : 0, y: isInView ? 0 : 30 }}
+            transition={{ duration: 0.7 }}
+            >
             {children}
-        </motion.div>
+            </motion.div>
+        </div>
     );
 }
