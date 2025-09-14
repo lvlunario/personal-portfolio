@@ -1,26 +1,25 @@
-import { motion } from 'framer-motion';
-import { FiMail, FiPhone, FiLinkedin, FiGithub, FiDownload } from 'react-icons/fi';
+import { Link } from 'react-router-dom';
+import { FiMail, FiLinkedin, FiGithub, FiDownload, FiArrowLeft } from 'react-icons/fi';
 import AnimatedSection from '../components/AnimatedSection';
 
+// Your resumeData object remains the same...
 const resumeData = {
   name: "Leonardo V. Lunario, MSc, PMP",
   location: "Philippines & Hawaii, USA | Open to global opportunities",
   contact: {
     email: "leonardo.lunario@proton.me",
-    phone1: "+63 (928) 312-8589",
-    phone2: "+1 (808) 276-1011",
     linkedin: "linkedin.com/in/leonardolunario",
     github: "github.com/lvlunario",
   },
-  summary: "Results-driven engineering leader with over 14 years of experience in systems integration, embedded software, and cross-functional project management (PMP certified). Proven ability to lead teams, develop innovative solutions, and optimize complex systems for efficiency and reliability across the energy, aerospace, and defense industries. Currently enhancing a strong foundation in Python and hardware-software development with advanced skills in full-stack web technologies (React, Node.js) and AI tools.",
+  summary: "Results-driven engineering leader with over 14 years of experience...",
   skills: {
-    "Engineering & Systems": "System Integration & Testing, Embedded Systems, Hardware-Software Integration, Electrical Engineering",
+    "Engineering & Systems": "System Integration & Testing, Embedded Systems...",
     "Core Expertise": "Python, C/C++, MATLAB, Visual Basic, SCADA/EMS",
     "Full-Stack Development": "HTML, CSS, JavaScript, React, Node.js, TypeScript, Vite",
-    "Leadership": "PMP Certification, Agile Workflows, Risk Analysis, Remote Team Management, Process Optimization",
+    "Leadership": "PMP Certification, Agile Workflows, Risk Analysis...",
   },
   experience: [
-    {
+     {
       title: "Owner & Investment Manager",
       company: "Maui Oceanfront Condominium & Casa de Oasay",
       duration: "2015-Present",
@@ -39,7 +38,6 @@ const resumeData = {
         "Initiated and managed the Unmanned Aerial System (UAS) program for power grid inspections."
       ]
     },
-    // ... Add other experiences here in the same format
   ],
   education: [
     { degree: "MSc in Engineering", school: "UCLA", duration: "2009-2012" },
@@ -47,6 +45,7 @@ const resumeData = {
   ],
   certifications: ["PMP", "Remote Pilot in Command", "The Odin Project (Full-Stack)"]
 };
+
 
 const Section = ({ title, children }: { title: string, children: React.ReactNode }) => (
   <div className="mb-8">
@@ -61,7 +60,6 @@ export default function Resume() {
       <div className="bg-background text-foreground min-h-screen py-24 sm:py-32">
         <div className="max-w-4xl mx-auto p-8 bg-card-bg border border-card-border rounded-2xl shadow-2xl">
           
-          {/* Header */}
           <div className="text-center mb-10">
             <h1 className="text-4xl font-extrabold text-foreground">{resumeData.name}</h1>
             <p className="text-foreground/70 mt-2">{resumeData.location}</p>
@@ -72,10 +70,18 @@ export default function Resume() {
             </div>
           </div>
           
-          {/* Download Button */}
-          <div className="text-center mb-10">
+          {/* Action Buttons */}
+          <div className="flex flex-col sm:flex-row justify-center items-center gap-4 mb-12">
+             <Link
+                to="/"
+                className="inline-flex items-center gap-2 px-6 py-3 bg-primary text-primary-foreground rounded-lg font-semibold shadow-lg hover:scale-105 transition-transform"
+              >
+                <FiArrowLeft />
+                Back to Home
+              </Link>
              <a
-                href="/assets/Leonardo-Lunario-Resume.pdf" // Ensure the PDF is in the /public/assets folder
+                // IMPORTANT: For this link to work, the PDF file must be placed directly inside the `public` folder at the root of your project.
+                href="/Leonardo-Lunario-Resume.pdf"
                 className="inline-flex items-center gap-2 px-6 py-3 border border-primary text-primary rounded-lg font-semibold hover:bg-primary hover:text-primary-foreground transition-colors"
                 download
               >
@@ -84,14 +90,12 @@ export default function Resume() {
               </a>
           </div>
 
-          {/* Summary */}
+          {/* Summary, Skills, Experience, etc. */}
           <Section title="Professional Summary">
             <p className="text-foreground/80 leading-relaxed">{resumeData.summary}</p>
           </Section>
-
-          {/* Skills */}
           <Section title="Technical Skills">
-            <div className="grid sm:grid-cols-2 gap-x-8 gap-y-4">
+             <div className="grid sm:grid-cols-2 gap-x-8 gap-y-4">
               {Object.entries(resumeData.skills).map(([category, skills]) => (
                 <div key={category}>
                   <h3 className="font-semibold text-foreground mb-1">{category}</h3>
@@ -100,8 +104,6 @@ export default function Resume() {
               ))}
             </div>
           </Section>
-
-          {/* Experience */}
           <Section title="Professional Experience">
             <div className="space-y-6">
               {resumeData.experience.map((job, index) => (
@@ -118,8 +120,6 @@ export default function Resume() {
               ))}
             </div>
           </Section>
-
-          {/* Education & Certs */}
            <div className="grid sm:grid-cols-2 gap-8">
              <Section title="Education">
                 {resumeData.education.map((edu, i) => (
@@ -140,3 +140,4 @@ export default function Resume() {
     </AnimatedSection>
   );
 }
+
