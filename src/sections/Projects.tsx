@@ -13,7 +13,7 @@ export default function Projects() {
       title: "UAS Program Initiative",
       description: "Initiated and managed the Unmanned Aerial System (UAS) program for power grid inspections at Maui Electric, enhancing operational efficiency and safety.",
       tags: ["Program Management", "UAS", "Process Optimization"],
-      link: "#" # Placeholder
+      link: "#" // Placeholder
     },
     {
       title: "Data Analysis GUI",
