@@ -2,31 +2,30 @@ import AnimatedSection from '../components/AnimatedSection';
 import ProjectCard from '../components/ProjectCard';
 
 export default function Projects() {
-  // Using more specific projects from your resume adds significant weight.
   const projects = [
     {
       title: "Cockpit Server Management",
       description: "Deployed and manage a personal server using Cockpit for a streamlined, web-based graphical interface for server administration and Docker container management.",
       tags: ["Linux", "Docker", "System Admin", "Self-Hosting"],
-      link: "https://github.com/lvlunario/cockpit-server" // <-- UPDATED LINK
+      link: "https://github.com/lvlunario/cockpit-server"
     },
     {
       title: "UAS Program Initiative",
       description: "Initiated and managed the Unmanned Aerial System (UAS) program for power grid inspections at Maui Electric, enhancing operational efficiency and safety.",
       tags: ["Program Management", "UAS", "Process Optimization"],
-      link: "#" // You can link to a future blog post or details page
+      // link: "#"
     },
     {
       title: "Data Analysis GUI",
-      description: "Developed MATLAB-based graphical user interfaces for data analysis and reporting, streamlining the data validation process at Northrop Grumman.",
-      tags: ["MATLAB", "GUI", "Data Analysis", "Automation"],
-      link: "#"
+      description: "Developed Python-based graphical user interfaces for data analysis and reporting, streamlining the data validation process.",
+      tags: ["Python", "GUI", "Data Analysis", "Automation"],
+      link: "https://github.com/lvlunario/flight-data-analyzer"
     },
     {
       title: "Portfolio Website",
       description: "This personal portfolio, built from scratch to showcase my skills in modern front-end development and design.",
       tags: ["React", "TypeScript", "Tailwind CSS", "Vite"],
-      link: "https://github.com/lvlunario/personal-portfolio" // Link to the repo!
+      link: "https://github.com/lvlunario/personal-portfolio"
     }
   ];
 
