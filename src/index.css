@@ -1144,3 +1144,16 @@ p {
     margin: 15mm;
   }
 }
+
+@media print {
+  .resume-page .contact { display: none; }
+  .resume-page > .eyebrow { margin-bottom: 10px; }
+  .resume-page > .resume-subtitle { font-size: 14px; line-height: 1.4; margin: 8px 0; }
+  .resume-page > p:not(.eyebrow):not(.resume-summary):not(.resume-subtitle) { font-size: 11px; }
+  .resume-page .experience .section-heading h2,
+  .resume-page .experience .section-heading > p { display: none; }
+  .resume-page .experience .section-heading { margin-bottom: 10px; }
+  .resume-page .experience .section-heading .eyebrow { margin-bottom: 0; }
+  .resume-skills h2 { font-size: 20px; margin-bottom: 10px; }
+  .education { padding-top: 20px; }
+}
